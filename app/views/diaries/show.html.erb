@@ -1,0 +1,26 @@
+<%= render 'shared/page_title',title: @diary.name%>
+<hr />
+
+<div class="sell col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong>Diary:</strong></h4>
+  <hr />
+  <%= simple_format(@diary.description)%>
+  <hr />
+  <div class="pull-right">
+    <p  class="center">
+      <em>Created by :</em>
+    </p>
+    <p class="center"> 
+      <%=link_to gravatar_for(@diary.user),diaries_path%>
+    </p>
+    <p class="center">
+      <small><%= @diary.user.name.capitalize%></small>
+      <div class="pull-right"><%= time_ago_in_words(@diary.created_at)%>ago</div>
+    </p>
+  </div>
+  <div class="diary-actions">
+    <%= link_to "Edit",edit_diary_path(@diary),class:"btn btn-xs btn-warning"%>
+    <%= link_to "Delete",diary_path(@diary),method: :delete ,data: {confirm: 'Are You Sure?'},class: "btn btn-xs btn-danger"%>
+    <%= link_to "Return",diaries_path,class:"btn btn-xs btn-primary"%>
+  </div>
+</div>
