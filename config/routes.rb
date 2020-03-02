@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get "pages/contact",to: "pages#contact"
 
   resources :diaries
+
+  get "/signup",to: "users#new"
+  resources :users, except: [:new]
 end
