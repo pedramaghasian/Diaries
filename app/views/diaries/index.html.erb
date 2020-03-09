@@ -1,6 +1,9 @@
 <%= render 'shared/page_title',title: "showin all Diary"%>
 <hr />
 
+<div align="center">
+  <%=will_paginate%>
+</div>
 <% @diaries.each do |diary|%>
   <div class="row">
     <div class="col-md-2">
@@ -17,3 +20,7 @@
     </div>
   </div>
 <%end%>
+
+<div align="center">
+  <%=will_paginate%>
+</div>

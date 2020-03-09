@@ -1,1 +1,30 @@
 <%= render '/shared/page_title',title: 'Your Profile'%>
+
+
+<div class="row">
+  <div class=" col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @user,size: 150%>
+  </div>
+</div>
+
+<h4 align="center"><%= @user.name%>'s Diaries </h4>
+<div align="center">
+  <%=will_paginate @user_diaries%>
+</div>
+
+<% @user_diaries.each do |diary|%>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="chef_info center">
+        <%= gravatar_for(diary.user,size: 120 )%>
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= link_to diary.name.capitalize, diary_path(diary)%></h4>
+      <p><%= truncate(diary.description,length: 150)%></p>
+      <p>
+        <span class="quiet"><small>Created<%= time_ago_in_words(diary.created_at)%>ago</small></span>
+      </p>
+    </div>
+  </div>
+<%end%>

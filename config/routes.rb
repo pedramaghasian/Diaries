@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :diaries
 
-  get "/signup",to: "users#new"
+  get '/signup',to: "users#new"
   resources :users, except: [:new]
 end

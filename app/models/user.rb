@@ -5,7 +5,8 @@ class User < ApplicationRecord
   validates :email , presence: true , length: {maximum:255},
                   format: {with: VALID_EMAIL_REGEX},
                   uniqueness: {case_sensitive: false}
-  has_many :diaries
+  has_many :diaries, dependent: :destroy
   has_secure_password 
   validates :password,presence: true , length: {minimum: 7}
+  default_scope -> {order(updated_at: :desc)}
 end
