@@ -19,8 +19,10 @@
     </p>
   </div>
   <div class="diary-actions">
-    <%= link_to "Edit",edit_diary_path(@diary),class:"btn btn-xs btn-warning"%>
-    <%= link_to "Delete",diary_path(@diary),method: :delete ,data: {confirm: 'Are You Sure?'},class: "btn btn-xs btn-danger"%>
+    <% if logged_in?%>
+      <%= link_to "Edit",edit_diary_path(@diary),class:"btn btn-xs btn-warning"%>
+      <%= link_to "Delete",diary_path(@diary),method: :delete ,data: {confirm: 'Are You Sure?'},class: "btn btn-xs btn-danger"%>
+    <%end%>
     <%= link_to "Return",diaries_path,class:"btn btn-xs btn-primary"%>
   </div>
 </div>
