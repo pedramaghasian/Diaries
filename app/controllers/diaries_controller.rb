@@ -14,8 +14,8 @@ class DiariesController < ApplicationController
 
   def create 
     @diary=Diary.new(diary_params)
-    @diary.user=User.first
-    if @diary.save 
+    @diary.user = current_user
+    if @diary.save
       flash[:success]="Diary was created successfully !"
       redirect_to diary_path(@diary)
     else  
