@@ -1,4 +1,4 @@
-<%= render '/shared/page_title',title: 'Your Profile'%>
+<%= render '/shared/page_title',title: " #{@user.name}'s profile'"%>
 
 
 <div class="row">
@@ -25,6 +25,14 @@
       <p>
         <span class="quiet"><small>Created<%= time_ago_in_words(diary.created_at)%>ago</small></span>
       </p>
+      <% if logged_in? && (current_user == diary.user || current_user.adminstrator?)%>
+        <div class="recipe-actions">
+          <%= link_to "Edit", edit_diary_path(diary),class: "btn btn-xs btn-warning"%>
+          <%= link_to "Delete", diary_path(diary),method: :delete,
+                                          data: { confirm: 'Are you sure?' },
+                                          class:"btn btn-xs btn-danger"%>
+        </div>
+      <%end%>                                  
     </div>
   </div>
 <%end%>

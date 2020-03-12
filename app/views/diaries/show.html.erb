@@ -19,7 +19,7 @@
     </p>
   </div>
   <div class="diary-actions">
-    <% if logged_in?%>
+    <% if logged_in? && (current_user == @diary.user || current_user.adminstrator?) %>
       <%= link_to "Edit",edit_diary_path(@diary),class:"btn btn-xs btn-warning"%>
       <%= link_to "Delete",diary_path(@diary),method: :delete ,data: {confirm: 'Are You Sure?'},class: "btn btn-xs btn-danger"%>
     <%end%>

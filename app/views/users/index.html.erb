@@ -12,7 +12,10 @@
           <li><%= link_to gravatar_for(user),user_path(user)%></li>
           <li class="chef-title"><%= link_to user.name.capitalize,user_path(user)%></li>
           <li><small><%= pluralize(user.diaries.count,"Diary") if user.diaries%></small></li>
-          <li><%= link_to "Delete",user_path(user),method: :delete,data: {confirm: "Are you sure ?"}%></li>
+
+          <% if logged_in? && current_user.adminstrator? && !user.adminstrator?%>
+            <li><%= link_to "Delete",user_path(user),method: :delete,data: {confirm: "Are you sure ?"}%></li>
+          <%end%>
         </div>
       </div>
     </ul>
