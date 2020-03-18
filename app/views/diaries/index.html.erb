@@ -15,7 +15,7 @@
       <h4><%= link_to diary.name.capitalize,diary_path(diary)%></h4>
       <p><%= truncate(diary.description,lenght:150)%></p>
       <p>
-        <span class="quite"><small>Created<%= time_ago_in_words(diary.created_at)%>ago</small></span>
+        <span class="quite"><small>Created <%= time_ago_in_words(diary.created_at)%> ago | by: <%=diary.user.name.capitalize%> | <%= pluralize(diary.comments.count , "comment")%></small></span>
       </p>
       <% if logged_in? && (current_user == diary.user || current_user.adminstrator?)%>
         <div class="recipe-actions">

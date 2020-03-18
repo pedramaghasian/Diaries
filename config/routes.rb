@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get "pages/contact",to: "pages#contact"
 
-  resources :diaries
+  resources :diaries do 
+    resources :comments , only: [:create] #nessted routes
+  end
 
   get '/signup',to: "users#new"
   resources :users, except: [:new]
