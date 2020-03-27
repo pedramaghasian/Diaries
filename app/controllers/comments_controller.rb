@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment=@diary.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
+      # ActionCable.server.broadcast 'comments_channel', render(partial: 'comments/comment',object: @comment)
       flash[:success]="#{@comment.user.name} your comment created successfully !"
       redirect_to diary_path(@diary)
     else 
