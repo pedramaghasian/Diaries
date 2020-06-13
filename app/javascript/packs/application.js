@@ -19,10 +19,16 @@ require("jquery")
 
 import 'bootstrap'
 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
+try 
+{
+  document.addEventListener("turbolinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip
 })
-
+}
+catch(error)
+{
+  
+}
 
 function scrollToBottom() {
   if($('#messages').length > 0) {
@@ -30,6 +36,9 @@ function scrollToBottom() {
   }
 }
 
+
 $(document).ready(function() {
   scrollToBottom();
+  
 });
+

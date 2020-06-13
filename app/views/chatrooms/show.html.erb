@@ -9,9 +9,10 @@
     <hr />
     <div class="message-container">
       <%= form_for(@message, :html => {class: "form-horizontal",role:"form"}) do |f|%>
-        <%= f.text_area :content ,class: "form-control" ,placeholder:'Your message'%>
-        <%= f.submit 'Send',class: 'btn btn-primary'%>
+        <%= f.text_area :content ,class: "form-control" ,placeholder:'Your message', id: "txt3", onkeyup: "txt3_func(event)"%>
+        <%= f.submit 'Send',class: 'btn btn-primary',id:'send'%>
       <%end%>
     </div>
   </div>
+  <span id="conter">0</span>
 </div>
