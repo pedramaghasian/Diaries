@@ -10,7 +10,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem 'uglifier', '~> 4.2'
